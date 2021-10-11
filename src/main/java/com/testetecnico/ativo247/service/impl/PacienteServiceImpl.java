@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
 import com.testetecnico.ativo247.model.Paciente;
 import com.testetecnico.ativo247.repository.PacienteRepository;
@@ -16,9 +17,14 @@ public class PacienteServiceImpl implements PacienteService{
 	@Autowired
 	PacienteRepository pacienteRepository;
 	
-	public Paciente salvarPaciente(Paciente paciente) {
-		pacienteRepository.save(paciente);
-		return paciente;
+	public Paciente salvarPaciente(Paciente paciente) throws Exception {
+		Paciente pacienteResponse = pacienteRepository.findByCpf(paciente.getCpf());
+		if(pacienteResponse == null) {				
+			pacienteRepository.save(paciente);
+			return paciente;
+		}else {				
+			throw new IllegalArgumentException("Usuário com cpf "+paciente.getCpf()+" Já existe no sistema!");
+		}
 	}
 	
 	public Optional<Paciente> buscarPaciente(Long id) {

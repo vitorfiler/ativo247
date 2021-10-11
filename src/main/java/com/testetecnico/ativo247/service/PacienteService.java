@@ -10,7 +10,7 @@ import com.testetecnico.ativo247.model.Paciente;
 @Service
 public interface PacienteService {
 
-	public Paciente salvarPaciente(Paciente paciente);
+	public Paciente salvarPaciente(Paciente paciente) throws Exception;
 	
 	public Optional<Paciente> buscarPaciente(Long id);
 	

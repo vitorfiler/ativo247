@@ -26,7 +26,7 @@ public class PacienteController {
 	PacienteService pacienteService;
 	
 	@PostMapping
-	public ResponseEntity<Paciente> salvarPaciente(@RequestBody Paciente paciente){
+	public ResponseEntity<Paciente> salvarPaciente(@RequestBody Paciente paciente) throws Exception{
 		return new ResponseEntity<>(pacienteService.salvarPaciente(paciente), HttpStatus.CREATED);
 	}
 	
