@@ -7,5 +7,6 @@ import com.testetecnico.ativo247.model.Paciente;
 
 @Repository
 public interface PacienteRepository extends JpaRepository<Paciente, Long>{
-
+	
+	Paciente findByCpf (String cpf);
 }
