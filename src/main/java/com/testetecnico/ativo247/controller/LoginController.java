@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.testetecnico.ativo247.model.Login;
-import com.testetecnico.ativo247.model.Paciente;
+import com.testetecnico.ativo247.model.Usuario;
 import com.testetecnico.ativo247.service.LoginService;
 
 import io.jsonwebtoken.Jwts;
@@ -32,7 +32,7 @@ public class LoginController {
 	public ResponseEntity<Login> login(@RequestBody Map<String, String> parametros) {
 		String usuarioCpf = parametros.get("usuario");
 		String senha = parametros.get("senha");
-		Paciente paciente = loginService.autenticacao(usuarioCpf, senha);
+		Usuario paciente = loginService.autenticacao(usuarioCpf, senha);
 		String token = getJWTToken(usuarioCpf);
 		Login user = new Login();
 		user.setToken(token);

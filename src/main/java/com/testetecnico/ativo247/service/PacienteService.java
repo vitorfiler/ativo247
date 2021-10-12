@@ -14,9 +14,9 @@ public interface PacienteService {
 	
 	public Optional<Paciente> buscarPaciente(Long id);
 	
+	public List<Paciente> buscarTodosPacientes();
+	
 	public Paciente atualizarPaciente(Paciente paciente) throws Exception;
 	
 	public String deletarPaciente(Long id) throws Exception;
-	
-	public List<Paciente> buscarTodosPacientes();
 }
