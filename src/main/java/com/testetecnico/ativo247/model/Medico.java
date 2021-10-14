@@ -1,9 +1,12 @@
 package com.testetecnico.ativo247.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.sun.istack.NotNull;
 
 @Entity(name="Medico")
 public class Medico {
@@ -12,7 +15,12 @@ public class Medico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name="nome")
+	@NotNull
 	private String nome;
+	
+	@Column(name="nu_crm")
+	@NotNull
 	private String nuCrm;
 	
 	public Long getId() {

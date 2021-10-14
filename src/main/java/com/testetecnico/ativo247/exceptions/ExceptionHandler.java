@@ -38,6 +38,14 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler{
 		return handleExceptionInternal(ex, new Erro(front, message), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 	
+	@org.springframework.web.bind.annotation.ExceptionHandler(value = {NotFoundException.class})
+	protected ResponseEntity<Object> notFoundException(NotFoundException ex, WebRequest request) {
+	
+		String message = ex.getMessage();
+		String front = "Não encontrado";
+		return handleExceptionInternal(ex, new Erro(front, message), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
 	private List<Erro> listaErros(BindingResult bindingResult){
 		List<Erro> erros = new ArrayList<>();
 		for(FieldError fieldError: bindingResult.getFieldErrors()) {

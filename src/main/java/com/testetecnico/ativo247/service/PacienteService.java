@@ -1,22 +1,24 @@
 package com.testetecnico.ativo247.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.testetecnico.ativo247.dto.PacienteDTO;
 import com.testetecnico.ativo247.model.Paciente;
 
 @Service
 public interface PacienteService {
 
-	public Paciente salvarPaciente(Paciente paciente) throws Exception;
+	public PacienteDTO salvarPaciente(Paciente paciente) throws Exception;
 	
-	public Optional<Paciente> buscarPaciente(Long id);
+	public PacienteDTO buscarPaciente(Long id);
 	
 	public List<Paciente> buscarTodosPacientes();
 	
-	public Paciente atualizarPaciente(Paciente paciente) throws Exception;
+	public PacienteDTO atualizarPaciente(Paciente paciente) throws Exception;
 	
-	public String deletarPaciente(Long id) throws Exception;
+	public PacienteDTO deletarPaciente(Long id) throws Exception;
+	
+	public List<Paciente> filtrarPacientes(String filtro);
 }

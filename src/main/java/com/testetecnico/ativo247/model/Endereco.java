@@ -1,23 +1,38 @@
 package com.testetecnico.ativo247.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name="Endereco")
+@Entity(name="endereco")
 public class Endereco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private Long id;
 	
+	@Column(name="logradouro")
 	private String logradouro;
+
+	@Column(name="numero")
 	private String numero;
+	
+	@Column(name="bairro")
 	private String bairro;
+	
+	@Column(name="complemento")
 	private String complemento;
+	
+	@Column(name="cidade")
 	private String cidade;
+	
+	@Column(name="estado")
 	private String estado;
+	
+	@Column(name="cep")
 	private String cep;
 	
 	public Long getId() {

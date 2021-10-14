@@ -17,20 +17,15 @@ import com.testetecnico.ativo247.model.Medico;
 import com.testetecnico.ativo247.service.MedicoService;
 
 @RestController
-@RequestMapping("medico")
-public class MedicoController {
+@RequestMapping("cep")
+public class CepController {
 
 	@Autowired
 	private MedicoService medicoService;
 	
-	@PostMapping
+	@GetMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public MedicoDTO salvarMedico(@RequestBody Medico medico) throws Exception{
-		return medicoService.salvarMedico(medico);
-	}
-	
-	@GetMapping("todos")
-	public ResponseEntity<List<Medico>> buscarMedicos() throws Exception{
+	public ResponseEntity<List<Medico>> consultaCep() throws Exception{
 		return new ResponseEntity<>(medicoService.buscarMedicos(), HttpStatus.OK);
 	}
 	

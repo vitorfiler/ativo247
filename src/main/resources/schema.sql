@@ -1,5 +1,5 @@
 CREATE TABLE Usuario (
-	id INT,
+	id INT AUTO_INCREMENT,
 	nome VARCHAR (100),
 	telefone VARCHAR(20),
 	sexo VARCHAR(1),
@@ -9,14 +9,14 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE Medico (
-	id INT,
+	id INT AUTO_INCREMENT,
 	nome VARCHAR (100),
 	nuCrm VARCHAR(20),
 	PRIMARY KEY (id)	
 );
 
 CREATE TABLE Endereco (
-	id INT,
+	id INT AUTO_INCREMENT,
 	logradouro VARCHAR (200),
 	numero INT,
 	bairro VARCHAR(100),
@@ -28,7 +28,7 @@ CREATE TABLE Endereco (
 );
 
 CREATE TABLE Paciente (
-	id INT,
+	id INT AUTO_INCREMENT,
 	nome VARCHAR (100),
 	nomeMedico VARCHAR(100),
 	cpf VARCHAR(11),

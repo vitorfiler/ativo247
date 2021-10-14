@@ -1,53 +1,20 @@
-package com.testetecnico.ativo247.model;
+package com.testetecnico.ativo247.dto;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import com.testetecnico.ativo247.model.Endereco;
 
-import com.sun.istack.NotNull;
+public class PacienteDTO {
 
-@Entity(name="Paciente")
-@Table
-public class Paciente {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
 	private Long id;
-
-	@NotNull
 	private String nome;
-	
-	@NotNull
 	private Long medicoID;
-	
-	@NotNull
 	private String nomeMedico;
-	
-	@NotNull
 	private String cpf;
-	
-	@NotNull
 	private LocalDate dtPrescricao;
-	
-	@NotNull
 	private String telefone;
-	
-	@NotNull
 	private String observacao;
-	
-	@NotNull
 	private boolean ativo;
-	
-	@OneToOne
-	@JoinColumn(name="enderecoID", referencedColumnName="id")
 	private Endereco endereco;
 
 	public Long getId() {
@@ -130,7 +97,7 @@ public class Paciente {
 		this.endereco = endereco;
 	}
 
-	public Paciente() {
+	public PacienteDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
